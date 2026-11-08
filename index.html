@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Premium Customer Relationship Management (CRM) System with Kanban pipeline, analytics, contacts, task checklists, and glassmorphic aesthetics.">
+  <title>NexusCRM - Elevate Your Sales Workflow</title>
+  
+  <!-- CSS Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="app-container">
+    
+    <!-- Login Screen -->
+    <div id="login-container">
+      <div class="login-bg-glows">
+        <div class="glow-blob glow-1"></div>
+        <div class="glow-blob glow-2"></div>
+      </div>
+      <div class="glass-card login-card">
+        <div class="login-header">
+          <div class="logo-icon" style="margin: 0 auto 16px auto; width: 44px; height: 44px;">
+            <i data-lucide="layers" style="width: 24px; height: 24px;"></i>
+          </div>
+          <h2>Welcome to NexusCRM</h2>
+          <p class="text-muted">Enter credentials to access your sales workspace</p>
+        </div>
+        <form id="login-form" class="quick-log-form">
+          <div class="form-group">
+            <label for="login-email">Email Address</label>
+            <div class="search-bar-container" style="width:100%;">
+              <i data-lucide="mail" class="search-icon"></i>
+              <input type="email" id="login-email" class="form-input" style="padding-left:36px; width:100%;" placeholder="admin@nexus.com" required value="admin@nexus.com">
+            </div>
+          </div>
+          
+          <div class="form-group">
+            <label for="login-password">Password</label>
+            <div class="search-bar-container" style="width:100%;">
+              <i data-lucide="lock" class="search-icon"></i>
+              <input type="password" id="login-password" class="form-input" style="padding-left:36px; width:100%;" placeholder="••••••••" required value="password">
+            </div>
+          </div>
+          
+          <div style="display:flex; justify-content:space-between; align-items:center; margin: 4px 0;">
+            <label style="display:flex; align-items:center; gap:8px; font-size:12px; color:var(--text-muted); cursor:pointer;">
+              <input type="checkbox" id="login-remember" style="accent-color:var(--primary);"> Remember me
+            </label>
+            <a style="font-size:12px; color:var(--primary); text-decoration:none;" href="#">Forgot Password?</a>
+          </div>
+          
+          <button type="submit" class="btn btn-primary" style="justify-content:center; padding: 12px; margin-top: 12px; font-weight:600; width:100%;">
+            <span>Login Workspace</span> <i data-lucide="arrow-right"></i>
+          </button>
+        </form>
+        
+        <div style="display:flex; align-items:center; gap:10px; margin: 20px 0; color:var(--text-muted); font-size:12px;">
+          <div style="flex-grow:1; height:1px; background:var(--border-color);"></div>
+          <span>Or sign in with</span>
+          <div style="flex-grow:1; height:1px; background:var(--border-color);"></div>
+        </div>
+        <div style="display:flex; justify-content:center; gap:12px;">
+          <button class="btn-icon" style="flex:1; display:flex; justify-content:center; align-items:center; gap:8px;" onclick="showToast('Google Sign In is mock-configured', 'info')">
+            <svg style="width:14px; height:14px;" viewBox="0 0 24 24" fill="currentColor"><path d="M12.24 10.285V14.4h6.887c-.648 2.41-2.519 4.114-6.887 4.114-4.68 0-8.498-3.818-8.498-8.499 0-4.68 3.818-8.498 8.498-8.498 2.14 0 4.09.8 5.61 2.22l3.12-3.12A13.91 13.91 0 0 0 12.24 0c-7.732 0-14 6.268-14 14s6.268 14 14 14c7.732 0 14-6.268 14-14 0-.962-.108-1.9-.3-2.812l-13.7 1.097z"/></svg>
+            <span style="font-size:12px; font-weight:600;">Google</span>
+          </button>
+          <button class="btn-icon" style="flex:1; display:flex; justify-content:center; align-items:center; gap:8px;" onclick="showToast('GitHub Sign In is mock-configured', 'info')">
+            <svg style="width:14px; height:14px;" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.385.6.11.82-.26.82-.577v-2.234c-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.43.372.82 1.102.82 2.222v3.293c0 .319.22.694.825.576C20.565 21.795 24 17.3 24 12c0-6.63-5.37-12-12-12z"/></svg>
+            <span style="font-size:12px; font-weight:600;">GitHub</span>
+          </button>
+        </div>
+
+        <div class="demo-badge" style="margin-top: 24px; padding: 10px; border-radius: 8px; border: 1px solid var(--border-color); font-size: 11px; text-align: center; color: var(--text-muted);">
+          <strong>Demo:</strong> admin@nexus.com / password
+        </div>
+      </div>
+    </div>
+    
+    <!-- Sidebar Navigation -->
+    <aside id="app-sidebar">
+      <div class="sidebar-logo">
+        <div class="logo-icon">
+          <i data-lucide="layers"></i>
+        </div>
+        <span class="logo-text">NexusCRM</span>
+      </div>
+      
+      <nav>
+        <ul class="nav-links">
+          <li class="nav-item">
+            <a class="nav-link active" data-view="dashboard" id="nav-dashboard">
+              <i data-lucide="layout-dashboard"></i>
+              <span>Dashboard</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-view="contacts" id="nav-contacts">
+              <i data-lucide="users"></i>
+              <span>Contacts</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-view="deals" id="nav-deals">
+              <i data-lucide="kanban"></i>
+              <span>Deals Board</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-view="tasks" id="nav-tasks">
+              <i data-lucide="check-square"></i>
+              <span>Tasks</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-view="history" id="nav-history">
+              <i data-lucide="history"></i>
+              <span>Interactions</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+      
+      <div class="sidebar-footer">
+        <!-- Theme Toggle -->
+        <div class="theme-toggle-container">
+          <span class="theme-toggle-label">Light Mode</span>
+          <button id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle light and dark theme"></button>
+        </div>
+        
+        <!-- User Profile Card -->
+        <div class="user-profile">
+          <div class="user-avatar">AS</div>
+          <div class="user-info" style="flex-grow: 1;">
+            <span class="user-name">Ayan Sarguru</span>
+            <span class="user-role">Sales Director</span>
+          </div>
+          <button id="btn-logout" class="btn-icon" style="border:none; background:transparent; color:var(--text-muted); cursor:pointer;" title="Logout">
+            <i data-lucide="log-out" style="width:16px; height:16px;"></i>
+          </button>
+        </div>
+      </div>
+    </aside>
+    
+    <!-- Main Content Panel -->
+    <main id="app-main">
+      
+      <!-- Top Header -->
+      <header>
+        <div class="header-title-container">
+          <h1 id="view-title">Dashboard</h1>
+        </div>
+        
+        <div class="header-actions">
+          <!-- Search input -->
+          <div class="search-bar-container">
+            <i data-lucide="search" class="search-icon"></i>
+            <input type="text" id="global-search" class="global-search" placeholder="Search contacts, companies...">
+          </div>
+          
+          <!-- Contextual Action Buttons -->
+          <button id="btn-header-action" class="btn btn-primary">
+            <i data-lucide="plus"></i>
+            <span id="btn-header-action-text">New Lead</span>
+          </button>
+        </div>
+      </header>
+      
+      <!-- Content Viewport -->
+      <div class="content-viewport">
+        
+        <!-- ================= DASHBOARD VIEW ================= -->
+        <section id="dashboard-view" class="view-section active">
+          <!-- Metric Grid -->
+          <div class="metrics-grid">
+            <div class="glass-card metric-card">
+              <div class="metric-details">
+                <h3>Total Contacts</h3>
+                <div class="metric-value" id="metric-total-contacts">0</div>
+              </div>
+              <div class="metric-icon-box">
+                <i data-lucide="users"></i>
+              </div>
+            </div>
+            
+            <div class="glass-card metric-card">
+              <div class="metric-details">
+                <h3>Active Deals</h3>
+                <div class="metric-value" id="metric-active-deals">0</div>
+              </div>
+              <div class="metric-icon-box">
+                <i data-lucide="trending-up"></i>
+              </div>
+            </div>
+            
+            <div class="glass-card metric-card">
+              <div class="metric-details">
+                <h3>Won Revenue</h3>
+                <div class="metric-value" id="metric-won-revenue">$0</div>
+              </div>
+              <div class="metric-icon-box">
+                <i data-lucide="dollar-sign"></i>
+              </div>
+            </div>
+            
+            <div class="glass-card metric-card">
+              <div class="metric-details">
+                <h3>Tasks Completed</h3>
+                <div class="metric-value" id="metric-tasks-rate">0%</div>
+              </div>
+              <div class="metric-icon-box">
+                <i data-lucide="clipboard-check"></i>
+              </div>
+            </div>
+            
+            <!-- Target Goal Progress Card -->
+            <div class="glass-card metric-card" style="position:relative; overflow:hidden;">
+              <div class="metric-details" style="width: 100%;">
+                <div style="display:flex; justify-content:space-between; align-items:center; width:100%; margin-bottom:8px;">
+                  <h3 style="margin-bottom:0; font-size:13px; text-transform:uppercase; letter-spacing:0.8px; color:var(--text-muted);">Sales Goal ($50k)</h3>
+                  <span id="target-progress-percentage" style="font-size:13px; font-weight:700; color:var(--success);">0%</span>
+                </div>
+                <div style="width:100%; background:var(--border-color); height:8px; border-radius:4px; overflow:hidden; margin-bottom:8px;">
+                  <div id="target-progress-bar" style="height:100%; width:0%; background:linear-gradient(90deg, var(--primary), var(--success)); border-radius:4px; transition:width 0.5s ease;"></div>
+                </div>
+                <div id="target-progress-label" style="font-size:12px; font-weight:600; color:var(--text-main);">
+                  $0 / $50,000 won
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Analytics Charts -->
+          <div class="charts-grid">
+            <!-- Revenue Line Chart -->
+            <div class="glass-card">
+              <div class="chart-header">
+                <h2>Revenue Growth Trend</h2>
+                <div class="chart-actions">
+                  <span class="badge badge-customer">Trailing 6 Months</span>
+                </div>
+              </div>
+              <div class="chart-wrapper">
+                <canvas id="revenueChart"></canvas>
+              </div>
+            </div>
+            
+            <!-- Pipeline Stage Distribution Doughnut Chart -->
+            <div class="glass-card">
+              <div class="chart-header">
+                <h2>Pipeline Distribution</h2>
+              </div>
+              <div class="chart-wrapper">
+                <canvas id="pipelineChart"></canvas>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Dashboard Bottom Grid -->
+          <div class="dashboard-details-grid">
+            <!-- Recent Activities -->
+            <div class="glass-card">
+              <div class="panel-header">
+                <h2>Recent Interactions</h2>
+                <button class="btn btn-secondary btn-icon" id="dashboard-view-history-btn" title="View all history">
+                  <i data-lucide="arrow-right"></i>
+                </button>
+              </div>
+              <div class="timeline" id="dashboard-activity-feed">
+                <!-- Activities will be inserted dynamically -->
+              </div>
+            </div>
+            
+            <!-- Upcoming High/Medium Tasks -->
+            <div class="glass-card">
+              <div class="panel-header">
+                <h2>Upcoming Tasks</h2>
+                <button class="btn btn-secondary btn-icon" id="dashboard-view-tasks-btn" title="Go to tasks">
+                  <i data-lucide="arrow-right"></i>
+                </button>
+              </div>
+              <div class="dashboard-task-list" id="dashboard-tasks-feed">
+                <!-- Tasks will be inserted dynamically -->
+              </div>
+            </div>
+          </div>
+        </section>
+        
+        <!-- ================= CONTACTS VIEW ================= -->
+        <section id="contacts-view" class="view-section">
+          <div class="table-actions-bar">
+            <div class="filters-group">
+              <select id="contact-status-filter" class="filter-select">
+                <option value="all">All Statuses</option>
+                <option value="Lead">Lead</option>
+                <option value="Contact">Contact</option>
+                <option value="Customer">Customer</option>
+                <option value="Partner">Partner</option>
+                <option value="Vendor">Vendor</option>
+                <option value="Inactive">Inactive</option>
+              </select>
+              
+              <select id="contact-tag-filter" class="filter-select">
+                <option value="all">All Tags</option>
+                <!-- Filled dynamically -->
+              </select>
+            </div>
+            
+            <div style="display:flex; gap:10px;">
+              <input type="file" id="import-csv-input" style="display:none;" accept=".csv">
+              <button id="btn-import-csv" class="btn btn-secondary">
+                <i data-lucide="upload"></i> Import CSV
+              </button>
+              <button id="btn-export-csv" class="btn btn-secondary">
+                <i data-lucide="download"></i> Export CSV
+              </button>
+              <button id="btn-add-contact" class="btn btn-primary">
+                <i data-lucide="user-plus"></i> Add Contact
+              </button>
+            </div>
+          </div>
+          
+          <div class="table-wrapper glass-card">
+            <table class="custom-table" id="contacts-table">
+              <thead>
+                <tr>
+                  <th onclick="toggleSort('name')" style="cursor:pointer; user-select:none;">Name <i id="sort-icon-name" data-lucide="chevrons-up-down" style="width:12px; height:12px; margin-left:4px; vertical-align:middle;"></i></th>
+                  <th onclick="toggleSort('company')" style="cursor:pointer; user-select:none;">Company <i id="sort-icon-company" data-lucide="chevrons-up-down" style="width:12px; height:12px; margin-left:4px; vertical-align:middle;"></i></th>
+                  <th>Email & Phone</th>
+                  <th onclick="toggleSort('status')" style="cursor:pointer; user-select:none;">Status <i id="sort-icon-status" data-lucide="chevrons-up-down" style="width:12px; height:12px; margin-left:4px; vertical-align:middle;"></i></th>
+                  <th onclick="toggleSort('value')" style="cursor:pointer; user-select:none;">Value <i id="sort-icon-value" data-lucide="chevrons-up-down" style="width:12px; height:12px; margin-left:4px; vertical-align:middle;"></i></th>
+                  <th>Tags</th>
+                  <th onclick="toggleSort('dateCreated')" style="cursor:pointer; user-select:none;">Date Added <i id="sort-icon-dateCreated" data-lucide="chevrons-up-down" style="width:12px; height:12px; margin-left:4px; vertical-align:middle;"></i></th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody id="contacts-table-body">
+                <!-- Contacts rows populated dynamically -->
+              </tbody>
+            </table>
+          </div>
+        </section>
+        
+        <!-- ================= DEALS VIEW ================= -->
+        <section id="deals-view" class="view-section">
+          <div class="table-actions-bar">
+            <div>
+              <p class="text-muted" style="font-size:14px;">Drag and drop cards to change stages. Value totals update in real time.</p>
+            </div>
+            <button id="btn-add-deal" class="btn btn-primary">
+              <i data-lucide="plus-circle"></i> Create Deal
+            </button>
+          </div>
+          
+          <!-- Kanban Board -->
+          <div class="kanban-board" id="deals-kanban-board">
+            
+            <!-- Column: Qualification -->
+            <div class="kanban-column" data-stage="qualification">
+              <div class="kanban-column-header">
+                <div class="column-title-box">
+                  <span class="column-title">Qualification</span>
+                  <span class="column-badge" id="badge-count-qualification">0</span>
+                </div>
+                <span class="column-value-sum" id="sum-value-qualification">$0</span>
+              </div>
+              <div class="kanban-cards-container" id="container-qualification">
+                <!-- Cards will go here -->
+              </div>
+            </div>
+            
+            <!-- Column: Proposal -->
+            <div class="kanban-column" data-stage="proposal">
+              <div class="kanban-column-header">
+                <div class="column-title-box">
+                  <span class="column-title">Proposal</span>
+                  <span class="column-badge" id="badge-count-proposal">0</span>
+                </div>
+                <span class="column-value-sum" id="sum-value-proposal">$0</span>
+              </div>
+              <div class="kanban-cards-container" id="container-proposal">
+                <!-- Cards will go here -->
+              </div>
+            </div>
+            
+            <!-- Column: Negotiation -->
+            <div class="kanban-column" data-stage="negotiation">
+              <div class="kanban-column-header">
+                <div class="column-title-box">
+                  <span class="column-title">Negotiation</span>
+                  <span class="column-badge" id="badge-count-negotiation">0</span>
+                </div>
+                <span class="column-value-sum" id="sum-value-negotiation">$0</span>
+              </div>
+              <div class="kanban-cards-container" id="container-negotiation">
+                <!-- Cards will go here -->
+              </div>
+            </div>
+            
+            <!-- Column: Won -->
+            <div class="kanban-column" data-stage="won">
+              <div class="kanban-column-header">
+                <div class="column-title-box">
+                  <span class="column-title" style="color:var(--success)">Won</span>
+                  <span class="column-badge" id="badge-count-won">0</span>
+                </div>
+                <span class="column-value-sum" style="color:var(--success)" id="sum-value-won">$0</span>
+              </div>
+              <div class="kanban-cards-container" id="container-won">
+                <!-- Cards will go here -->
+              </div>
+            </div>
+            
+            <!-- Column: Lost -->
+            <div class="kanban-column" data-stage="lost">
+              <div class="kanban-column-header">
+                <div class="column-title-box">
+                  <span class="column-title" style="color:var(--danger)">Lost</span>
+                  <span class="column-badge" id="badge-count-lost">0</span>
+                </div>
+                <span class="column-value-sum" style="color:var(--danger)" id="sum-value-lost">$0</span>
+              </div>
+              <div class="kanban-cards-container" id="container-lost">
+                <!-- Cards will go here -->
+              </div>
+            </div>
+            
+          </div>
+        </section>
+        
+        <!-- ================= TASKS VIEW ================= -->
+        <section id="tasks-view" class="view-section">
+          <div class="tasks-layout">
+            <!-- Tasks Check List -->
+            <div class="glass-card">
+              <div class="panel-header">
+                <h2>All Tasks & Actions</h2>
+                <div class="filters-group">
+                  <select id="task-filter-status" class="filter-select">
+                    <option value="pending">Pending</option>
+                    <option value="completed">Completed</option>
+                    <option value="all">All</option>
+                  </select>
+                </div>
+              </div>
+              <div id="tasks-list-container" style="max-height: calc(100vh - 250px); overflow-y: auto; padding-right: 8px;">
+                <!-- Tasks render dynamically here -->
+              </div>
+            </div>
+            
+            <!-- Add Task Panel -->
+            <div class="glass-card" style="height: fit-content;">
+              <div class="panel-header">
+                <h2>Create Task</h2>
+              </div>
+              <form id="task-add-form" class="quick-log-form">
+                <div class="form-group">
+                  <label for="task-title-input">Task Summary *</label>
+                  <input type="text" id="task-title-input" class="form-input" placeholder="e.g. Prepare deck for demo" required>
+                </div>
+                
+                <div class="form-group">
+                  <label for="task-assoc-select">Associate With</label>
+                  <select id="task-assoc-select" class="form-select">
+                    <option value="none">None</option>
+                    <optgroup label="Contacts" id="task-assoc-contacts-group"></optgroup>
+                    <optgroup label="Deals" id="task-assoc-deals-group"></optgroup>
+                  </select>
+                </div>
+                
+                <div class="form-group">
+                  <label for="task-due-input">Due Date *</label>
+                  <input type="date" id="task-due-input" class="form-input" required>
+                </div>
+                
+                <div class="form-group">
+                  <label for="task-priority-select">Priority</label>
+                  <select id="task-priority-select" class="form-select">
+                    <option value="low">Low</option>
+                    <option value="medium" selected>Medium</option>
+                    <option value="high">High</option>
+                  </select>
+                </div>
+                
+                <button type="submit" class="btn btn-primary" style="margin-top: 8px;">
+                  <i data-lucide="check"></i> Create Task
+                </button>
+              </form>
+            </div>
+          </div>
+        </section>
+        
+        <!-- ================= INTERACTIONS VIEW ================= -->
+        <section id="history-view" class="view-section">
+          <div class="history-layout">
+            <!-- Add Interaction Form -->
+            <div class="glass-card history-sidebar">
+              <div class="panel-header">
+                <h2>Log Interaction</h2>
+              </div>
+              <form id="log-interaction-form" class="quick-log-form">
+                <div class="form-group">
+                  <label for="inter-contact-select">Contact Reference *</label>
+                  <select id="inter-contact-select" class="form-select" required>
+                    <!-- Filled dynamically -->
+                  </select>
+                </div>
+                
+                <div class="form-group">
+                  <label for="inter-type-select">Activity Type</label>
+                  <select id="inter-type-select" class="form-select">
+                    <option value="email">Email</option>
+                    <option value="call">Call</option>
+                    <option value="meeting">Meeting</option>
+                    <option value="sms">SMS / Text</option>
+                    <option value="linkedin">LinkedIn</option>
+                    <option value="whatsapp">WhatsApp</option>
+                    <option value="demo">Product Demo</option>
+                    <option value="note">Internal Note</option>
+                  </select>
+                </div>
+                
+                <div class="form-group">
+                  <label for="inter-desc-textarea">Interaction Notes *</label>
+                  <textarea id="inter-desc-textarea" class="form-textarea" rows="6" placeholder="Describe the outcome of the discussion..." required></textarea>
+                </div>
+                
+                <button type="submit" class="btn btn-primary" style="margin-top: 8px;">
+                  <i data-lucide="send"></i> Log Activity
+                </button>
+              </form>
+            </div>
+            
+            <!-- Complete Interactions Timeline -->
+            <div class="glass-card history-timeline-container">
+              <div class="panel-header">
+                <h2>Activity Timeline</h2>
+              </div>
+              <div class="history-timeline timeline" id="full-history-timeline" style="max-height: calc(100vh - 270px);">
+                <!-- Full history timeline items inserted dynamically -->
+              </div>
+            </div>
+          </div>
+        </section>
+        
+      </div>
+    </main>
+  </div>
+  
+  <!-- ================= CONTACT MODAL ================= -->
+  <div id="contact-modal" class="modal-overlay">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 id="contact-modal-title">Add New Contact</h3>
+        <button class="close-modal-btn" onclick="closeModal('contact-modal')">&times;</button>
+      </div>
+      <form id="contact-form">
+        <input type="hidden" id="contact-edit-id" value="">
+        <div class="modal-body">
+          <div class="quick-log-form">
+            <div class="form-group">
+              <label for="contact-name">Full Name *</label>
+              <input type="text" id="contact-name" class="form-input" placeholder="e.g. John Doe" required>
+            </div>
+            
+            <div class="form-group">
+              <label for="contact-company">Company</label>
+              <input type="text" id="contact-company" class="form-input" placeholder="e.g. Tesla Inc.">
+            </div>
+            
+            <div class="form-group">
+              <label for="contact-email">Email Address</label>
+              <input type="email" id="contact-email" class="form-input" placeholder="e.g. john@tesla.com">
+            </div>
+            
+            <div class="form-group">
+              <label for="contact-phone">Phone Number</label>
+              <input type="text" id="contact-phone" class="form-input" placeholder="e.g. +1 (555) 123-4567">
+            </div>
+            
+            <div class="form-group">
+              <label for="contact-status">Status</label>
+              <select id="contact-status" class="form-select">
+                <option value="Lead" selected>Lead</option>
+                <option value="Contact">Contact</option>
+                <option value="Customer">Customer</option>
+                <option value="Partner">Partner</option>
+                <option value="Vendor">Vendor</option>
+                <option value="Inactive">Inactive</option>
+              </select>
+            </div>
+            
+            <div class="form-group">
+              <label for="contact-value">Estimated Value ($)</label>
+              <input type="number" id="contact-value" class="form-input" placeholder="0" min="0" value="0">
+            </div>
+            
+            <div class="form-group">
+              <label for="contact-tags-input">Tags (comma separated)</label>
+              <div class="tags-input-container" id="contact-tags-container">
+                <input type="text" id="contact-tags-input" placeholder="Press Enter to add tag">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" onclick="closeModal('contact-modal')">Cancel</button>
+          <button type="submit" class="btn btn-primary">Save Contact</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  
+  <!-- ================= DEAL MODAL ================= -->
+  <div id="deal-modal" class="modal-overlay">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 id="deal-modal-title">Create New Deal</h3>
+        <button class="close-modal-btn" onclick="closeModal('deal-modal')">&times;</button>
+      </div>
+      <form id="deal-form">
+        <input type="hidden" id="deal-edit-id" value="">
+        <div class="modal-body">
+          <div class="quick-log-form">
+            <div class="form-group">
+              <label for="deal-title">Deal Name *</label>
+              <input type="text" id="deal-title" class="form-input" placeholder="e.g. Software Suite Enterprise" required>
+            </div>
+            
+            <div class="form-group">
+              <label for="deal-contact">Associate Contact *</label>
+              <select id="deal-contact" class="form-select" required>
+                <!-- Filled dynamically -->
+              </select>
+            </div>
+            
+            <div class="form-group">
+              <label for="deal-value">Deal Value ($) *</label>
+              <input type="number" id="deal-value" class="form-input" placeholder="e.g. 5000" min="0" required>
+            </div>
+            
+            <div class="form-group">
+              <label for="deal-stage">Pipeline Stage</label>
+              <select id="deal-stage" class="form-select">
+                <option value="qualification">Qualification</option>
+                <option value="proposal">Proposal</option>
+                <option value="negotiation">Negotiation</option>
+                <option value="won">Won (Closed)</option>
+                <option value="lost">Lost (Closed)</option>
+              </select>
+            </div>
+            
+            <div class="form-group">
+              <label for="deal-close-date">Expected Close Date *</label>
+              <input type="date" id="deal-close-date" class="form-input" required>
+            </div>
+            
+            <div class="form-group">
+              <label for="deal-priority">Priority</label>
+              <select id="deal-priority" class="form-select">
+                <option value="low">Low</option>
+                <option value="medium" selected>Medium</option>
+                <option value="high">High</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" onclick="closeModal('deal-modal')">Cancel</button>
+          <button type="submit" class="btn btn-primary">Save Deal</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  
+  <!-- Toasts Container -->
+  <div id="toast-container" class="toast-container"></div>
+  
+  <!-- CDNs and Scripts -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="mockData.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
